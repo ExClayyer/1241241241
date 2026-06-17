@@ -1,0 +1,212 @@
+#site-header {
+    background: var(--c-surface);
+    border-bottom: 1px solid var(--c-border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.header-logo a {
+    font-family: var(--font-playfair);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--c-heading);
+    letter-spacing: 1px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.header-nav a {
+    font-size: 14px;
+    color: var(--c-text-muted);
+    transition: color var(--transition);
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+    color: var(--c-heading);
+    font-weight: 600;
+}
+
+.header-nav a.active {
+    border-bottom: 2px solid var(--c-accent);
+    padding-bottom: 4px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-link {
+    color: var(--c-text-muted);
+    transition: color var(--transition), transform var(--transition);
+    display: flex;
+}
+
+.header-link:hover {
+    color: var(--c-heading);
+    transform: scale(1.1);
+}
+
+.header-link svg {
+    width: 22px;
+    height: 22px;
+}
+
+.header-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--c-text);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    background: var(--c-surface-alt);
+    border-radius: var(--radius);
+    transition: background var(--transition);
+}
+
+.header-cart:hover {
+    background: var(--c-border);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: transform var(--transition);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+.header-cart svg {
+    width: 18px;
+    height: 18px;
+}
+
+.cart-badge {
+    background: var(--c-accent);
+    color: var(--c-accent-text);
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    transition: transform var(--transition);
+}
+
+#site-footer {
+    background: var(--c-surface);
+    color: var(--c-text-muted);
+    padding: 50px 40px 20px;
+    margin-top: auto;
+    border-top: 1px solid var(--c-border);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1600px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--c-border-light);
+    padding-bottom: 36px;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-col h3 {
+    font-family: var(--font-playfair);
+    font-size: 22px;
+    color: var(--c-heading);
+    margin-bottom: 14px;
+}
+
+.footer-col h4 {
+    font-size: 13px;
+    color: var(--c-text-dim);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p,
+.footer-col a {
+    font-size: 14px;
+    color: var(--c-text-muted);
+    margin-bottom: 10px;
+    display: block;
+    line-height: 1.6;
+}
+
+.footer-col a:hover {
+    color: var(--c-heading);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 22px;
+    font-size: 13px;
+    color: var(--c-text-dim);
+}
+
+.burger-btn {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+    z-index: 110;
+}
+.burger-btn span {
+    display: block; width: 22px; height: 2px;
+    background: var(--c-text); border-radius: 1px;
+}
+.burger-btn.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.burger-btn.open span:nth-child(2) { opacity: 0; }
+.burger-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+.burger-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 105;
+}
+.burger-overlay.show { display: block; }
+
+.burger-menu {
+    position: fixed; top: 0; right: -280px; width: 280px; height: 100vh;
+    background: var(--c-surface); z-index: 106; padding: 80px 30px 30px;
+    display: flex; flex-direction: column; gap: 16px;
+}
+.burger-menu.show { right: 0; }
+.burger-menu a {
+    font-size: 16px; color: var(--c-text); text-decoration: none;
+    padding: 10px 0; border-bottom: 1px solid var(--c-border-light);
+}
+.burger-menu a.active { color: var(--c-heading); font-weight: 600; }
+
+@media (max-width: 992px) {
+    .burger-btn { display: flex; }
+    .header-nav { display: none; }
+}
